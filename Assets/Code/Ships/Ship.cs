@@ -5,7 +5,7 @@ namespace Ships
     public class Ship : MonoBehaviour
     {
         [SerializeField] private float _speed;
-        [SerializeField] private Joystick _joystick;
+        [SerializeField] private Input _input;
         [SerializeField] private float _viewportPointMinValue = 0.03f;
         [SerializeField] private float _viewportPointMaxValue = 0.97f;
         private Transform _myTransform;
@@ -15,6 +15,11 @@ namespace Ships
         {
             _camera = Camera.main;
             _myTransform = transform;
+        }
+
+        public void Configure(Input input)
+        {
+            _input = input;
         }
 
         private void Update()
@@ -39,11 +44,7 @@ namespace Ships
 
         private Vector2 GetDirection()
         {
-            return new Vector2(_joystick.Horizontal, _joystick.Vertical);
-            
-            var horizontalDir = Input.GetAxis("Horizontal");
-            var verticalDir = Input.GetAxis("Vertical");
-            return new Vector2(horizontalDir, verticalDir);
+            return _input.GetDirection();
         }
     }
 }
