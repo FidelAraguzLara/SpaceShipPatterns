@@ -562,6 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af04ec3c29760548b0b724cad6ad521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useAI: 1
   _useJoystick: 0
   _joystick: {fileID: 689759991}
   _ship: {fileID: 763083168}
